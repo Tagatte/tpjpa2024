@@ -3,7 +3,10 @@ package jpa;
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(
+        name="Type",
+        discriminatorType=DiscriminatorType.STRING, length=5 )
 public abstract class Personne {
 
     private Long id;
